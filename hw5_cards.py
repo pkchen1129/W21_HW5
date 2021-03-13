@@ -66,7 +66,7 @@ class Deck:
         Parameters  
         -------------------
         i: int (optional)
-            the index of the ard to remove. Default (-1) will remove the "top" card
+            the index of the card to remove. Default (-1) will remove the "top" card
         Returns
         -------
         Card

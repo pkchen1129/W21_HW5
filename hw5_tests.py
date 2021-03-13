@@ -1,3 +1,10 @@
+#########################################
+##### Name: Po-Kang Chen            #####
+#####
+##### Uniqname:pkchen               #####
+#########################################
+
+
 import unittest
 import hw5_cards
 
@@ -34,8 +41,9 @@ class TestCard(unittest.TestCase):
         ### please note: normally unit test methods do not have return statements. But returning will allow for unit testing of your unit test, and allow you to check your answer with the autograder.  This is optional today.
 
         '''
-        pass
-        #return X, Y
+        c1 = hw5_cards.Card(0, 12)
+        self.assertEqual(c1.rank_name, "Queen")
+        return c1.rank_name, "Queen"
     
     def test_q2(self):
         '''
@@ -49,8 +57,9 @@ class TestCard(unittest.TestCase):
         ### please note: normally unit test methods do not have return statements. But returning will allow for unit testing of your unit test, and allow you to check your answer with the autograder.  This is optional today.
 
         '''
-        pass
-        #return X, Y    
+        c1 = hw5_cards.Card(1, 1)
+        self.assertEqual(c1.suit_name, "Clubs")
+        return c1.suit_name, "Clubs"
     
 
     def test_q3(self):
@@ -66,8 +75,9 @@ class TestCard(unittest.TestCase):
         ### please note: normally unit test methods do not have return statements. But returning will allow for unit testing of your unit test, and allow you to check your answer with the autograder.  This is optional today.
 
         '''
-        pass
-        #return X, Y
+        c1 = hw5_cards.Card(3, 13)
+        self.assertEqual(c1.__str__(), "King of Spades")
+        return c1.__str__(), "King of Spades"
     
     def test_q4(self):
         '''
@@ -81,8 +91,9 @@ class TestCard(unittest.TestCase):
         ### please note: normally unit test methods do not have return statements. But returning will allow for unit testing of your unit test, and allow you to check your answer with the autograder.  This is optional today.
 
         '''
-        pass
-        #return X, Y  
+        d1 = hw5_cards.Deck()
+        self.assertEqual(len(d1.cards), 52)
+        return len(d1.cards), 52  
 
     def test_q5(self):
         '''
@@ -96,8 +107,9 @@ class TestCard(unittest.TestCase):
         ### please note: normally unit test methods do not have return statements. But returning will allow for unit testing of your unit test, and allow you to check your answer with the autograder.  This is optional today.
 
         '''
-        pass
-        #return X, Y
+        d1 = hw5_cards.Deck()
+        self.assertIsInstance(d1.deal_card(), hw5_cards.Card)
+        return d1.deal_card(), hw5_cards.Card  
     
     def test_q6(self):
         '''
@@ -112,8 +124,13 @@ class TestCard(unittest.TestCase):
         ### please note: normally unit test methods do not have return statements. But returning will allow for unit testing of your unit test, and allow you to check your answer with the autograder.  This is optional today.
 
         '''
-        pass
-        #return X, Y    
+        d1 = hw5_cards.Deck()
+        before = len(d1.cards)
+        d1.deal_card()
+        after = len(d1.cards)
+        self.assertIsNot(before, after)
+        self.assertEqual(before, after + 1)
+        return before, after  
     
 
     def test_q7(self):
@@ -129,7 +146,14 @@ class TestCard(unittest.TestCase):
         ### please note: normally unit test methods do not have return statements. But returning will allow for unit testing of your unit test, and allow you to check your answer with the autograder.  This is optional today.
 
         '''
-        pass
+        d1 = hw5_cards.Deck()
+        before_deal = len(d1.cards)
+        c = d1.deal_card()
+        after_deal = len(d1.cards)
+        d1.replace_card(c)
+        after_replace = len(d1.cards)
+        self.assertEqual(before_deal, after_deal + 1)
+        self.assertEqual(after_deal, after_replace - 1)
         #return X, Y
     
     def test_q8(self):
@@ -145,7 +169,13 @@ class TestCard(unittest.TestCase):
         ### please note: normally unit test methods do not have return statements. But returning will allow for unit testing of your unit test, and allow you to check your answer with the autograder.  This is optional today.
 
         '''
-        pass
+        d1 = hw5_cards.Deck()
+        before_replace = len(d1.cards)
+        c = hw5_cards.Card(3,13)
+        d1.replace_card(c)
+        after_replace = len(d1.cards)
+        self.assertEqual(before_replace, after_replace)
+
         #return X, Y  
 
 
